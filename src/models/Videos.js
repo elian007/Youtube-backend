@@ -8,10 +8,16 @@ const VideoSchema = new mongoose.Schema({
     curtidas: {
         type: Number,
         default: 0,
-    }
+    },
+    descurtidas: {
+        type: Number,
+        default: 0,
+    },
 },
     {
         timestamps: true
     })
 
-    module.exports = mongoose.model('Video', VideoSchema)
+
+
+module.exports = mongoose.model('Video', VideoSchema)
