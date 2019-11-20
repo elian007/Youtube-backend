@@ -16,7 +16,7 @@ module.exports = {
         const allowedMimes = [
             'video/mp4'
         ]
-        if(allowdMimes.includes(file.mimetype)){
+        if(allowedMimes.includes(file.mimetype)){
             cb(null, true)
         }
         else{
