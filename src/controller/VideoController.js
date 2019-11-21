@@ -8,6 +8,9 @@ module.exports = {
 
         return res.json(videos)
     },
+    async search(req, res){
+        
+    },
     async store(req, res){
         const { titulo, descricao, hashtags} = req.body
         const { filename: video} = req.file
