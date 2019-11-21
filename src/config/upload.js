@@ -7,5 +7,20 @@ module.exports = {
         filename: function(req, file, cb){
             cb(null, file.originalname)
         }
-    })
+    }),
+    limits: {
+        fileSize: 20 * 1024 * 1024
+        
+    },
+    fileFilter: (req, file, cb) => {
+        const allowedMimes = [
+            'video/mp4'
+        ]
+        if(allowedMimes.includes(file.mimetype)){
+            cb(null, true)
+        }
+        else{
+            cb(new Error('Formato de vídeo inválido.'))
+        }
+    }
 }
