@@ -8,15 +8,12 @@ module.exports = {
 
         return res.json(videos)
     },
-/*
+
     async search(req, res){
         
-        const video = await Video.find({ descricao: { $regex: 'infin.*', $options: 'i' }}).pretty();
-    
-        console.log('teste')
-        return res.json(video)
+        
     },
-*/
+
     async store(req, res){
         const { titulo, descricao, hashtags} = req.body
         const { filename: video} = req.file
