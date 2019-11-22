@@ -13,7 +13,7 @@ module.exports = {
         
         const video = await Video.find( { descricao: { $regex: 'infin.*', $options: 'i' } } ).pretty();
     
-        console.log(video)
+        console.log('teste')
         return res.json(video)
     },
 
