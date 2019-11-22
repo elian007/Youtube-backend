@@ -8,9 +8,13 @@ module.exports = {
 
         return res.json(videos)
     },
+    
     async search(req, res){
-        
+        const pesquisa = req.$search
+        const video = await Video.find( { $text: { $search: `${pesquisa}` } } )
+        return res.json(video)
     },
+
     async store(req, res){
         const { titulo, descricao, hashtags} = req.body
         const { filename: video} = req.file

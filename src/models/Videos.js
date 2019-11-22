@@ -18,6 +18,6 @@ const VideoSchema = new mongoose.Schema({
         timestamps: true
     })
 
-
+VideoSchema.createIndex({"$**":"text"})
 
 module.exports = mongoose.model('Video', VideoSchema)
