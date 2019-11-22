@@ -11,7 +11,7 @@ module.exports = {
 
     async search(req, res){
         
-        const video = await Video.find( { descricao: { $regex: req.params.id} } ).pretty()
+        const video = await Video.find( { descricao: { $regex: 'a.*',  $options: 'i' } } ).pretty()
         console.log(video)
         return res.json(video)
     },
