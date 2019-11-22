@@ -11,7 +11,8 @@ module.exports = {
 
     async search(req, res){
         
-        const video = await Video.find( { $text: { $search: "ulti" } } )
+        const video = await Video.find( { descricao: { $regex: 'infin.*', $options: 'i' } } ).pretty();
+    
         console.log(video)
         return res.json(video)
     },
