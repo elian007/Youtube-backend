@@ -1,10 +1,22 @@
 const mongoose = require('mongoose')
 
 const VideoSchema = new mongoose.Schema({
-    titulo: String,
-    descricao: String,
-    hashtags: String,
-    video: String,
+    titulo: {
+        type: String,
+        text: true
+    },
+    descricao: {
+        type: String,
+        text: true
+    },
+    hashtags: {
+        type: String,
+        text: true
+    },
+    video: {
+        type: String,
+        text: true
+    },
     curtidas: {
         type: Number,
         default: 0,
