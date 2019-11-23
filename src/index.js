@@ -11,6 +11,7 @@ const io = require('socket.io')(server)
 mongoose.connect(process.env.MONGO_URL,{
     useNewUrlParser: true, useUnifiedTopology: true
 })
+mongoose.set('useCreateIndex', true)
 
 app.use((req, res, next)=>{
     req.io = io

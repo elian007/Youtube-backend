@@ -9,7 +9,8 @@ module.exports = {
         return res.json(videos)
     },
     async search(req, res){
-        
+        const video = await Video.find( { $text: { $search: req.params } } )
+        return res.json(video)
     },
     async store(req, res){
         const { titulo, descricao, hashtags} = req.body
@@ -24,6 +25,9 @@ module.exports = {
             hashtags,
             video: nomeArquivo
         })
+
+        VideoSchema.createIndex({"descricao":"text", "video":"text", "titulo":"text"})
+
 
         req.io.emit('video', videos)
         return res.json(videos)
