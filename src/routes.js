@@ -12,7 +12,7 @@ const upload = multer(uploadConfig)
 
 
 routes.get('/videos', VideoController.index)
-routes.get('/pesquisa', VideoController.search)
+routes.get('/pesquisa/:value', VideoController.search)
 routes.post('/videos', upload.single('video'), VideoController.store)
 routes.post('/videos/:id/curtida', CurtidasController.store)
 routes.post('/videos/:id/descurtida', DescurtirController.store)
