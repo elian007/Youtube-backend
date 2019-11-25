@@ -9,7 +9,7 @@ module.exports = {
         return res.json(videos)
     },
     async search(req, res){
-        const video = await Video.find( { $text: { $search: "ult" }} )
+        const video = await Video.find( { descricao:  { $regex: 'Cor', $options: "si" }  } )
         return res.json(video)
     },
     async store(req, res){
