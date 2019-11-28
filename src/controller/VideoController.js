@@ -20,7 +20,6 @@ module.exports = {
     },
     
     async store(req, res, next){
-        const content = req.body
         const { titulo, descricao, hashtags} = req.body
         const { filename: video} = req.file
 
