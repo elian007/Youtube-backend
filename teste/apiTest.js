@@ -13,6 +13,16 @@ describe('GET /videos', function () {
     });
 })
 
+describe('GET /video', function () {
+    it('respond with json containing a list of all videos', function () {
+        request(app)
+            .get('/video')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(404);
+        
+    });
+})
 
 describe('GET /pesquisa/:value', function () {
     it('respond with json containing a single video', function () {
@@ -26,17 +36,14 @@ describe('GET /pesquisa/:value', function () {
 })
 
 describe('GET /pesquisa/:value', function () {
-    it('respond with json containing video not-found', function () {
+    it('respond with video not-found', function () {
         request(app)
             .get('/pesquisa/aladin')
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(404)
-            .expect('"user not found"') // expecting content value
-            .end((err) => {
-                if (err) return done(err);
-                
-            });
+            .expect('"video não encontrado"') // expecting content value
+            
         
     });
 
@@ -55,10 +62,7 @@ describe('POST /videos', function () {
                 .set('Accept', 'application/json')
                 .expect('Content-Type', /json/)
                 .expect(201)
-                .end((err) => {
-                    if (err) return done(err);
-                    
-                });
+               
         });
     });
     
@@ -77,10 +81,7 @@ describe('POST /videos', function () {
                 .expect('Content-Type', /json/)
                 .expect(400)
                 .expect('"video não adicionado"')
-                .end((err) => {
-                    if (err) return done(err);
-                    
-                });
+               
         });
     });
 

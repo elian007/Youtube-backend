@@ -7,15 +7,20 @@ module.exports = {
     async index(req, res, next){
         const videos = await Video.find().sort('-createdAt')
 
-        return res.json(videos)
+        if(!videos){
+            return res.sendStatus(404)
+        }
+            return res.status(200).json(videos)
     },
 
     async search(req, res, next){
         const pesquisa = req.params.value
         const video = await Video.find( { descricao:  { $regex: pesquisa, $options: "si" }  } )
         
-        
-            return res.json(video)
+        if(!video){
+            return res.sendStatus(404)
+        }
+            return res.status(200).json(video)
       
     },
     
@@ -33,9 +38,13 @@ module.exports = {
             video: nomeArquivo
         })
 
-        
+        if(!videos){
+            return res.sendStatus(400)
+        }
+
             req.io.emit('video', videos)
-            return res.json(videos)
+            
+            return res.status(201).json(videos)
         
        
 
