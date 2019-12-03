@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
-    "test": "mocha teste/apiTest.js"
+    "test": "_mocha teste/apiTest.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
