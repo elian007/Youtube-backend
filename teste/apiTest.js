@@ -8,7 +8,8 @@ const app = require('../src/index')
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200)
-            .end(done)
+
+        done()
     });
 })
 
@@ -18,8 +19,9 @@ describe('GET /video', function () {
             .get('/video')
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
-            .expect(404)
-            .end(done)
+            .expect(404);
+
+        done()
     });
 })
 
@@ -30,7 +32,9 @@ describe('GET /videos/:value', function () {
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200)
-            .end(done)
+           
+
+        done()
     });
 })
 
@@ -42,8 +46,8 @@ describe('GET /videos/:value', function () {
             .expect('Content-Type', /json/)
             .expect(404)
             .expect('"video não encontrado"') // expecting content value
-            .end(done)
-       
+
+        done()
     });
 
 
@@ -64,9 +68,8 @@ describe('POST /videos', function () {
                     expect(response.status).toBe(201)
                     expect(response.body).toEqual(data)
                 })
-                .end(done)
 
-            
+            done() 
         });
     });
 
@@ -90,9 +93,8 @@ describe('POST /videos', function () {
                 .expect(response => {
                     expect(response.status).toBe(400)
                 })
-                .expect('"video não adicionado"')
-                .end(done)
-              
+                .expect("video não adicionado")
+                done()
                
         });
     });
