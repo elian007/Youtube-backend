@@ -1,3 +1,12 @@
 const app = require('./index')
 
-app.listen(process.env.PORT || 3030)
+
+const server = require('http').Server(app)
+const io = require('socket.io')(server)
+
+app.use((req, res, next)=>{
+    req.io = io
+    next()
+
+})
+server.listen(process.env.PORT || 3030)

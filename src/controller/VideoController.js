@@ -39,7 +39,7 @@ module.exports = {
         })
 
         if(!videos){
-            return res.sendStatus(400)
+            return res.sendStatus(400).json('video não adicionado')
         }
 
             req.io.emit('video', videos)
