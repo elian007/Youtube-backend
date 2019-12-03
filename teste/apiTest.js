@@ -1,15 +1,14 @@
-const request = require('supertest');
+const request = require('supertest')
 const app = require('../src/index')
 
-
-describe('GET /videos', function () {
+ describe('GET /videos', function () {
     it('respond with json containing a list of all videos', function (done) {
         request(app)
             .get('/videos')
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200)
-            
+
         done()
     });
 })
@@ -21,6 +20,7 @@ describe('GET /video', function () {
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(404);
+
         done()
     });
 })
@@ -32,6 +32,7 @@ describe('GET /videos/:value', function () {
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200);
+
         done()
     });
 })
@@ -44,7 +45,7 @@ describe('GET /videos/:value', function () {
             .expect('Content-Type', /json/)
             .expect(404)
             .expect('"video não encontrado"') // expecting content value
-            
+
         done()
     });
 
@@ -66,6 +67,7 @@ describe('POST /videos', function () {
                     expect(response.status).toBe(201)
                     expect(response.body).toEqual(data)
                 })
+
             done() 
         });
     });
@@ -91,6 +93,7 @@ describe('POST /videos', function () {
                     expect(response.status).toBe(400)
                 })
                 .expect('"video não adicionado"')
+
             done()
               
                
