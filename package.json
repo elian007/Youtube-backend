@@ -5,8 +5,8 @@
   "author": "Elian Marcos <elians.2016@alunos.utfpr.edu.br>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
     "test": "_mocha --timeout 30000 teste/apiTest.js --exit"
   },
   "dependencies": {

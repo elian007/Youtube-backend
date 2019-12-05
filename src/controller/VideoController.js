@@ -4,6 +4,16 @@ const Video = require('../models/Videos')
 
 module.exports = {
 
+    async playlist(req, res, next){
+
+        const videos = await Video.find({favorito: true})
+        if(!videos){
+            return res.sendStatus(404)
+        }
+            return res.status(200).json(videos)
+    },
+
+
     async index(req, res, next){
         const videos = await Video.find().sort('-createdAt')
 

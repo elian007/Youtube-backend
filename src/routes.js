@@ -10,7 +10,7 @@ const DescurtirController = require('./controller/DescurtirController')
 const routes = new express.Router()
 const upload = multer(uploadConfig)
 
-
+routes.get('/playlist', VideoController.playlist)
 routes.get('/videos', VideoController.index)
 routes.get('/videos/:value', VideoController.search)
 routes.post('/videos', upload.single('video'), VideoController.store)

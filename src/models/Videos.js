@@ -32,6 +32,9 @@ const VideoSchema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
+    favorito:{
+        type: Boolean
+    }
 },
     {
         timestamps: true
