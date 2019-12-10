@@ -13,7 +13,7 @@ const io = require('socket.io')(server)
 
 
 mongoose.connect(process.env.MONGO_URL,{
-    useNewUrlParser: true, useUnifiedTopology: true
+    useNewUrlParser: true, useUnifiedTopology: true,  poolSize: 10
 })
 
 app.use((req, res, next)=>{
