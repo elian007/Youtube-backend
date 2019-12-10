@@ -45,6 +45,7 @@ module.exports = {
             titulo,
             descricao,
             hashtags,
+            favorito: false,
             video: nomeArquivo
         })
 
