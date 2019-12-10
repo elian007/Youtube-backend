@@ -1,9 +1,11 @@
 const express = require('express')
 const multer = require('multer')
 const uploadConfig = require('./config/upload')
-var cache = require('express-redis-cache')({ host: process.env.LOCAL_HOST, port: 6379, expire: 60 });
+const cache = require('express-redis-cache')({ client: require('redis').createClient(), expire: 60 });
 
-
+// cache.on('error', function (error) {
+//     throw new Error(error);
+//   });
 
 
 const VideoController = require('./controller/VideoController')
